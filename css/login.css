@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+:root {
+  --primary-color: #e53935;       /* Vermelho vibrante */
+  --primary-hover: #b71c1c;       /* Vermelho escuro para hover */
+  --background-color: #121212;    /* Preto quase absoluto */
+  --surface-color: #1e1e1e;       /* Fundo superfícies */
+  --text-color: #e0e0e0;          /* Cinza claro */
+  --text-muted: #757575;          /* Cinza médio */
+  --border-color: #2c2c2c;        /* Bordas suaves */
+  --danger-color: #ff6f61;        /* Vermelho suave para erros */
+  --shadow-color: rgba(229, 57, 53, 0.3); /* Sombra avermelhada */
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: none;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Wrapper geral --- */
+.auth-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: row;
+}
+
+/* --- Painel Esquerdo com branding --- */
+.auth-panel-left {
+  flex: 1;
+  background-color: var(--surface-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  position: relative;
+  border-radius: 14px 0 0 14px;
+  box-shadow: 0 6px 15px var(--shadow-color);
+  overflow: hidden;
+}
+
+.brand-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.brand-content h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  user-select: none;
+}
+
+.brand-content h1 span {
+  color: var(--text-muted);
+}
+
+.brand-content .tagline {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-top: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Bolha decorativa sutil */
+.auth-panel-left::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--primary-color), transparent 70%);
+  top: -100px;
+  left: -100px;
+  opacity: 0.12;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* --- Painel Direito com Formulário --- */
+.auth-panel-right {
+  flex: 1;
+  background-color: var(--surface-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 3rem;
+  border-radius: 0 14px 14px 0;
+  box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+.form-container .subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Campos do Formulário */
+.form-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.form-control {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1.8px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.85rem 1.2rem;
+  margin-bottom: 1.6rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+}
+
+/* Botão de Login */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--background-color);
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 1rem 1.6rem;
+  width: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 8px 30px var(--primary-hover);
+}
+
+/* Alerta de Erro */
+.alert-danger {
+  background-color: rgba(255, 111, 97, 0.1);
+  border: 1.5px solid rgba(255, 111, 97, 0.3);
+  color: var(--danger-color);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Link de rodapé */
+.form-footer-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.form-footer-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.form-footer-link a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 992px) {
+  .auth {
+    flex: 1 1 100%;
+    padding: 3rem 2rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+  }
+}
